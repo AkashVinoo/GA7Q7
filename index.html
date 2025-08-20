@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Employee Performance Analysis</title>
 </head>
 <body>
     <h1>Department Distribution</h1>
-    <img src="department_distribution.png" alt="Department Distribution Chart" style="max-width: 100%; height: auto;">
-    
+    <img src="department_distribution.png" alt="Department Distribution Chart" style="max-width: 100%; height: auto;" />
+
+    <h2>R&D Department Frequency Count</h2>
+    <p>The frequency count for the "R&amp;D" department is: <strong>15</strong></p>
+
     <h2>Python Code</h2>
-    <p><a href="employee_analysis.py" download>Download employee_analysis.py</a></p>
+    <pre>
+import pandas as pd
+import matplotlib.pyplot as plt
 
-    <!-- Display the R&D frequency count for validation -->
-    <p>Frequency count for "R&D" department: 15</p>
+# Load employee data
+data = pd.read_csv('employee_data.csv')
 
-    <!-- Hidden email for validation -->
-    <p style="display:none;">24f2000935@ds.study.iitm.ac.in</p>
+# Calculate frequency count for R&D department
+rd_count = data[data['Department'] == 'R&D'].shape[0]
+print(f"Frequency count for R&D department: {rd_count}")
+
+# Plot department distribution histogram
+plt.hist(data['Department'])
+plt.title('Department Distribution')
+plt.xlabel('Department')
+plt.ylabel('Number of Employees')
+plt.show()
+
+# Contact: 24f2000935@ds.study.iitm.ac.in
+    </pre>
 </body>
 </html>
